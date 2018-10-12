@@ -17,6 +17,7 @@ Copyright (c) Microsoft Corporation.
 
 You need to import the following assets from Unity Asset Store.
 - [Photon Unity Networking 2](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)
+- [Photon Voice v1.16](https://assetstore.unity.com/packages/tools/audio/photon-voice-45848) (*Modification is required to use with PUN 2)
 
 ## License
 - [MIT License](https://github.com/sotanmochi/VRMLiveMotionViewer/blob/master/LICENSE.txt)
