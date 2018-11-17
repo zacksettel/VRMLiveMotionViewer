@@ -1,7 +1,7 @@
 # VRM Live Motion Viewer
 
 ## Tested Environment
-- Unity 2017.4.9f1
+- Unity 2017.4.14f1
 - Visual Studio 2017
 - HoloLens RS5 Preview (OS Build: 17720.1000)
 
@@ -16,7 +16,9 @@ Licensed under the MIT License.
 Copyright (c) Microsoft Corporation.  
 
 You need to import the following assets from Unity Asset Store.
-- [Photon Unity Networking 2](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922)
+- [Photon Voice 2](https://assetstore.unity.com/packages/tools/audio/photon-voice-2-130518)
+    - Photon Voice : v2.1 (November 8th, 2018)
+    - PUN2 : v2.4 (24th October 2018)
 
 ## License
 - [MIT License](https://github.com/sotanmochi/VRMLiveMotionViewer/blob/master/LICENSE.txt)
