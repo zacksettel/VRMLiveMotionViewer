@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4467692648322686}
   - component: {fileID: 82913638261224936}
-  - component: {fileID: 114903464547079908}
-  - component: {fileID: 114313279647036690}
   - component: {fileID: 114977000195243362}
+  - component: {fileID: 114179678759178350}
+  - component: {fileID: 114202697564930254}
   m_Layer: 0
   m_Name: PhotonVoiceObject
   m_TagString: Untagged
@@ -123,7 +123,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114313279647036690
+--- !u!114 &114179678759178350
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -131,15 +131,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1743690156496770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b23b644f2525c1c4a9fd5b77d9505148, type: 3}
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Source: 0
-  MicrophoneType: 0
-  TypeConvert: 0
-  AudioClip: {fileID: 0}
-  LoopAudioClip: 1
---- !u!114 &114903464547079908
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+--- !u!114 &114202697564930254
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -147,9 +145,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1743690156496770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc001952a941c2743a3739a35bf9c162, type: 3}
+  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logLevel: 1
+  recorderInUse: {fileID: 0}
+  speakerInUse: {fileID: 0}
+  AutoCreateRecorderIfNotFound: 0
+  UsePrimaryRecorder: 1
+  SetupDebugSpeaker: 0
 --- !u!114 &114977000195243362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,10 +168,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 0
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 114179678759178350}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
