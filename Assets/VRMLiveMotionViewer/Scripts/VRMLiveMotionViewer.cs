@@ -20,6 +20,8 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
 	public UniHumanoid.HumanPoseTransfer m_target;
 	public UniHumanoid.HumanPoseTransfer m_source;
 
+	public OVRLipSyncContext lipSyncContext;
+
     void Awake()
     {
         // Defines how many times per second OnPhotonSerialize should be called on PhotonViews.
@@ -42,6 +44,22 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
 			humanPoseSynchronizer.GetComponent<Renderer>().enabled = false;
 
 			SetupTarget();
+		}
+
+		if (photonEvent.Code == (byte)VRMLiveMotionEventCode.SetLipSync)
+		{
+            Debug.Log("OnEvent: EventCode is SetLipSync.");
+            int receivedViewID = (int)photonEvent.Parameters[ParameterCode.Data];
+
+			GameObject photonVoiceSpeaker = PhotonView.Find(receivedViewID).gameObject;
+            lipSyncContext = photonVoiceSpeaker.AddComponent<OVRLipSyncContext>();
+			lipSyncContext.audioMute = false;
+
+            var morphTarget = VRMRoot.GetComponentInChildren<VRMLipSyncMorphTarget>();
+			if(morphTarget != null)
+			{
+	            morphTarget.lipsyncContext = lipSyncContext;
+			}
 		}
 	}
 
@@ -107,6 +125,10 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
                 GameObject.Destroy(m_target.gameObject);
             }
             m_target = humanPoseTransfer;
+
+			var morphTarget = vrm.AddComponent<VRMLipSyncMorphTarget>();
+			morphTarget.blendShapeProxy = vrm.GetComponent<VRM.VRMBlendShapeProxy>();
+            morphTarget.lipsyncContext = lipSyncContext;
 
 			SetupTarget();
 		}

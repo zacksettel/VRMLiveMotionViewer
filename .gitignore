@@ -1,5 +1,9 @@
 Assets/3rd Party/Photon/
 Assets/3rd Party/Photon.meta
+Assets/OVRLipSync/
+Assets/OVRLipSync.meta
+Assets/Plugins/
+Assets/Plugins.meta
 
 # ============================ #
 # Visual Studio Code generated #
