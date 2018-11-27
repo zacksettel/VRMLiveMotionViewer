@@ -203,7 +203,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1705203579}
+      objectReference: {fileID: 1665025588}
     - target: {fileID: 114700464119774652, guid: 40da8a1b3b26ba743b892d890b95a9f9,
         type: 2}
       propertyPath: m_Enabled
@@ -482,8 +482,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 587033155}
-  - component: {fileID: 587033154}
   - component: {fileID: 587033156}
+  - component: {fileID: 587033157}
+  - component: {fileID: 587033154}
   m_Layer: 0
   m_Name: VRMLiveMotionViewer
   m_TagString: Untagged
@@ -497,7 +498,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 587033153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71e3f3b3d5dcd7f4da6a79c5a1a63fcf, type: 3}
   m_Name: 
@@ -533,6 +534,22 @@ MonoBehaviour:
   VRMRoot: {fileID: 1844394443}
   m_target: {fileID: 0}
   m_source: {fileID: 0}
+  lipSyncContext: {fileID: 0}
+--- !u!114 &587033157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587033153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6368b8f14b0018647b0ec7219afaefa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomName: VRMLiveMotion2018
+  AutoConnect: 1
+  GameVersion: 1.0
+  MaxPlayers: 10
 --- !u!1 &713212876 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010302963436, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
@@ -1017,7 +1034,7 @@ Transform:
   m_PrefabParentObject: {fileID: 4249060311757736, guid: 40da8a1b3b26ba743b892d890b95a9f9,
     type: 2}
   m_PrefabInternal: {fileID: 152496045}
---- !u!21 &1705203579
+--- !u!21 &1665025588
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
