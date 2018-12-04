@@ -17,10 +17,13 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
 	public int SerializationRate = 30;
 	public GameObject VRMRoot;
 
-	public UniHumanoid.HumanPoseTransfer m_target;
-	public UniHumanoid.HumanPoseTransfer m_source;
+	private GameObject m_VRMObj;
+	private AvatarPositionSynchronizer m_avatarPositionSynchronizer;
 
-	public OVRLipSyncContext lipSyncContext;
+	private UniHumanoid.HumanPoseTransfer m_target;
+	private UniHumanoid.HumanPoseTransfer m_source;
+
+	private OVRLipSyncContext lipSyncContext;
 
     void Awake()
     {
@@ -55,10 +58,29 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
             lipSyncContext = photonVoiceSpeaker.AddComponent<OVRLipSyncContext>();
 			lipSyncContext.audioMute = false;
 
-            var morphTarget = VRMRoot.GetComponentInChildren<VRMLipSyncMorphTarget>();
+            var morphTarget = m_VRMObj.GetComponent<VRMLipSyncMorphTarget>();
 			if(morphTarget != null)
 			{
 	            morphTarget.lipsyncContext = lipSyncContext;
+			}
+		}
+
+		if (photonEvent.Code == (byte)VRMLiveMotionEventCode.SetAvatarPositionSynchronizer)
+        {
+			Debug.Log("OnEvent: EventCode is SetAvatarPositionSynchronizer");
+			int receivedViewID = (int)photonEvent.Parameters[ParameterCode.Data];
+			var synchronizer = PhotonView.Find(receivedViewID).gameObject.GetComponent<AvatarPositionSynchronizer>();
+
+			if (synchronizer != null)
+			{
+				if (m_VRMObj != null)
+				{
+					synchronizer.AvatarPositionTransform = m_VRMObj.transform;
+				}
+				else
+				{
+					m_avatarPositionSynchronizer = synchronizer;
+				}
 			}
 		}
 	}
@@ -131,6 +153,12 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
             morphTarget.lipsyncContext = lipSyncContext;
 
 			SetupTarget();
+
+			m_VRMObj = vrm;
+			if (m_avatarPositionSynchronizer != null)
+			{
+				m_avatarPositionSynchronizer.AvatarPositionTransform = m_VRMObj.transform;
+			}
 		}
 	}
 
