@@ -24,7 +24,15 @@ Licensed under the MIT License. Copyright (c) DWANGO Co., Ltd.
 Licensed under the MIT License. Copyright (c) Microsoft Corporation.  
 
 ## Settings
-### Oculus Lipsync Unity Plugin 1.16.0
+### Settings of Photon
+
+<img src="./Images/PhotonImportSetting01.png">
+
+<img src="./Images/PhotonImportSetting02.png">
+
+<img src="./Images/PhotonServerSettings.png">
+
+### Settings of Oculus Lipsync Unity Plugin 1.16.0
 Modify plugin import settings.
 
 <img src="./Images/OVRLipSync_x86.png">
