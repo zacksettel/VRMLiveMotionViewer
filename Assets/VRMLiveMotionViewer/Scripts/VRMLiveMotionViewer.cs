@@ -23,7 +23,7 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
 	private UniHumanoid.HumanPoseTransfer m_target;
 	private UniHumanoid.HumanPoseTransfer m_source;
 
-	private OVRLipSyncContext lipSyncContext;
+	//private OVRLipSyncContext lipSyncContext;
 
     void Awake()
     {
@@ -55,14 +55,14 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
             int receivedViewID = (int)photonEvent.Parameters[ParameterCode.Data];
 
 			GameObject photonVoiceSpeaker = PhotonView.Find(receivedViewID).gameObject;
-            lipSyncContext = photonVoiceSpeaker.AddComponent<OVRLipSyncContext>();
-			lipSyncContext.audioMute = false;
+   //         lipSyncContext = photonVoiceSpeaker.AddComponent<OVRLipSyncContext>();
+			//lipSyncContext.audioMute = false;
 
-            var morphTarget = m_VRMObj.GetComponent<VRMLipSyncMorphTarget>();
-			if(morphTarget != null)
-			{
-	            morphTarget.lipsyncContext = lipSyncContext;
-			}
+   //         var morphTarget = m_VRMObj.GetComponent<VRMLipSyncMorphTarget>();
+			//if(morphTarget != null)
+			//{
+	  //          morphTarget.lipsyncContext = lipSyncContext;
+			//}
 		}
 
 		if (photonEvent.Code == (byte)VRMLiveMotionEventCode.SetAvatarPositionSynchronizer)
@@ -148,9 +148,9 @@ public class VRMLiveMotionViewer : MonoBehaviourPunCallbacks, IOnEventCallback
             }
             m_target = humanPoseTransfer;
 
-			var morphTarget = vrm.AddComponent<VRMLipSyncMorphTarget>();
-			morphTarget.blendShapeProxy = vrm.GetComponent<VRM.VRMBlendShapeProxy>();
-            morphTarget.lipsyncContext = lipSyncContext;
+			//var morphTarget = vrm.AddComponent<VRMLipSyncMorphTarget>();
+			//morphTarget.blendShapeProxy = vrm.GetComponent<VRM.VRMBlendShapeProxy>();
+   //         morphTarget.lipsyncContext = lipSyncContext;
 
 			SetupTarget();
 

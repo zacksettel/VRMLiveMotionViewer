@@ -11,7 +11,7 @@ Assets/Plugins.meta
 # Visual Studio Code generated #
 # ============================ #
 .vscode/
-
+.DS_Store
 # =============== #
 # Unity generated #
 # =============== #

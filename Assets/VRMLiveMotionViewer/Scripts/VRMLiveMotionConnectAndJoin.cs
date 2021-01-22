@@ -76,7 +76,7 @@ public class VRMLiveMotionConnectAndJoin : MonoBehaviourPunCallbacks
 	public override void OnDisconnected(DisconnectCause cause)
 	{
 		Debug.Log("OnDisconnected("+cause+")");
-		if (cause == DisconnectCause.None || cause == DisconnectCause.TimeoutDisconnect)
+		if (cause == DisconnectCause.None || cause == DisconnectCause.ClientTimeout)
 		{
 			this.ConnectNow();
 		}
